@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Enter nodes (comma separated)</h2>
+<input id="input" style="width:300px" />
+<button onclick="send()">Submit</button>
+
+<pre id="output"></pre>
+
+<script>
+async function send() {
+  let data = document.getElementById("input").value.split(",");
+
+  let res = await fetch("http://localhost:3000/bfhl", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ data })
+  });
+
+  let json = await res.json();
+  document.getElementById("output").innerText =
+    JSON.stringify(json, null, 2);
+}
+</script>
+
+</body>
+</html>
