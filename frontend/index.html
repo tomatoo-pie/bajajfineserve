@@ -12,7 +12,7 @@
 async function send() {
   let data = document.getElementById("input").value.split(",");
 
-  let res = await fetch("http://localhost:3000/bfhl", {
+  let res = await fetch("https://bfhl-api-v3v1.onrender.com/bfhl", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ data })
